@@ -12,18 +12,26 @@ cd /var/www/kod-bezopasnosti
 # Активируем виртуальное окружение
 source venv/bin/activate
 
-echo "--- [ШАГ 1/4] Исправляем настройки Django ---"
+echo "--- [ШАГ 1/6] Исправляем настройки Django ---"
 # Исправляем ALLOWED_HOSTS
 sed -i "s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = ['kod-bezopasnosti.ru', 'www.kod-bezopasnosti.ru', '91.229.8.148', 'localhost', '127.0.0.1']/" kodbezopasnosti/settings.py
 sed -i "s/DEBUG = True/DEBUG = False/" kodbezopasnosti/settings.py
 
-echo "--- [ШАГ 2/4] Собираем статические файлы ---"
-python manage.py collectstatic --noinput
+echo "--- [ШАГ 2/6] Удаляем старые статические файлы ---"
+rm -rf staticfiles/*
+rm -rf static/*
 
-echo "--- [ШАГ 3/4] Перезапускаем Gunicorn ---"
+echo "--- [ШАГ 3/6] Собираем статические файлы заново ---"
+python manage.py collectstatic --noinput --clear
+
+echo "--- [ШАГ 4/6] Проверяем права доступа ---"
+chown -R www-data:www-data /var/www/kod-bezopasnosti
+chmod -R 755 /var/www/kod-bezopasnosti
+
+echo "--- [ШАГ 5/6] Перезапускаем Gunicorn ---"
 supervisorctl restart kodbezopasnosti
 
-echo "--- [ШАГ 4/4] Перезапускаем Nginx ---"
+echo "--- [ШАГ 6/6] Перезапускаем Nginx ---"
 systemctl restart nginx
 
 echo ""
