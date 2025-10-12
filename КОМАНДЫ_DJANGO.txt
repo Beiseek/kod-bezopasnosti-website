@@ -1,0 +1,175 @@
+═══════════════════════════════════════════════════════════════════
+                    ПОЛЕЗНЫЕ КОМАНДЫ DJANGO
+═══════════════════════════════════════════════════════════════════
+
+🚀 ЗАПУСК СЕРВЕРА
+
+Быстрый запуск:
+    START.bat
+
+Или вручную:
+    venv\Scripts\activate
+    py manage.py runserver
+
+───────────────────────────────────────────────────────────────────
+
+👤 УПРАВЛЕНИЕ ПОЛЬЗОВАТЕЛЯМИ
+
+Создать суперпользователя:
+    py manage.py createsuperuser
+
+Изменить пароль:
+    py manage.py changepassword admin
+
+───────────────────────────────────────────────────────────────────
+
+🗄️ РАБОТА С БАЗОЙ ДАННЫХ
+
+Создать миграции:
+    py manage.py makemigrations
+
+Применить миграции:
+    py manage.py migrate
+
+Откатить миграцию:
+    py manage.py migrate main 0001
+
+Показать миграции:
+    py manage.py showmigrations
+
+───────────────────────────────────────────────────────────────────
+
+📊 РАБОТА С ДАННЫМИ
+
+Открыть shell Django:
+    py manage.py shell
+
+Экспорт данных:
+    py manage.py dumpdata main > backup.json
+
+Импорт данных:
+    py manage.py loaddata backup.json
+
+Очистить таблицу:
+    py manage.py flush
+
+───────────────────────────────────────────────────────────────────
+
+🎨 СТАТИЧЕСКИЕ ФАЙЛЫ
+
+Собрать статику (для production):
+    py manage.py collectstatic
+
+Найти статические файлы:
+    py manage.py findstatic style.css
+
+───────────────────────────────────────────────────────────────────
+
+🔍 ОТЛАДКА И ПРОВЕРКА
+
+Проверить проект на ошибки:
+    py manage.py check
+
+Показать SQL запросы миграций:
+    py manage.py sqlmigrate main 0001
+
+Тестирование:
+    py manage.py test
+
+───────────────────────────────────────────────────────────────────
+
+📝 ПРИМЕРЫ РАБОТЫ С МОДЕЛЯМИ В SHELL
+
+# Открыть shell
+py manage.py shell
+
+# Импортировать модель
+from main.models import ConsultationRequest
+
+# Получить все заявки
+ConsultationRequest.objects.all()
+
+# Получить необработанные заявки
+ConsultationRequest.objects.filter(processed=False)
+
+# Создать новую заявку
+request = ConsultationRequest.objects.create(
+    name="Иван Иванов",
+    phone="+7 (923) 774-33-13",
+    email="test@example.com",
+    category="business",
+    consent=True
+)
+
+# Отметить заявку как обработанную
+request = ConsultationRequest.objects.get(id=1)
+request.processed = True
+request.save()
+
+# Удалить заявку
+request.delete()
+
+# Получить количество заявок
+ConsultationRequest.objects.count()
+
+# Получить заявки за сегодня
+from django.utils import timezone
+today = timezone.now().date()
+ConsultationRequest.objects.filter(created_at__date=today)
+
+───────────────────────────────────────────────────────────────────
+
+🔐 БЕЗОПАСНОСТЬ
+
+Сменить SECRET_KEY:
+    1. Откройте kodbezopasnosti/settings.py
+    2. Замените значение SECRET_KEY
+    3. Сохраните файл
+
+Отключить DEBUG режим:
+    В settings.py установите: DEBUG = False
+
+Настроить разрешенные хосты:
+    В settings.py: ALLOWED_HOSTS = ['ваш-домен.ru', 'www.ваш-домен.ru']
+
+───────────────────────────────────────────────────────────────────
+
+📦 РАБОТА С ПАКЕТАМИ
+
+Установить зависимости:
+    pip install -r requirements.txt
+
+Обновить зависимости:
+    pip install --upgrade django
+
+Создать requirements.txt:
+    pip freeze > requirements.txt
+
+───────────────────────────────────────────────────────────────────
+
+🌐 PRODUCTION DEPLOYMENT
+
+1. Установить gunicorn:
+    pip install gunicorn
+
+2. Запустить через gunicorn:
+    gunicorn kodbezopasnosti.wsgi:application
+
+3. Собрать статику:
+    py manage.py collectstatic --noinput
+
+4. Применить миграции:
+    py manage.py migrate --noinput
+
+───────────────────────────────────────────────────────────────────
+
+💡 ПОЛЕЗНЫЕ СОВЕТЫ
+
+• Всегда активируйте виртуальное окружение перед работой
+• Делайте резервные копии базы данных регулярно
+• Не коммитьте db.sqlite3 в Git
+• Используйте переменные окружения для секретов
+• Тестируйте на локальном сервере перед деплоем
+
+═══════════════════════════════════════════════════════════════════
+

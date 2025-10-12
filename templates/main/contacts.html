@@ -1,0 +1,139 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Контакты - Код Безопасности{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%), url('{{ site_images.contacts_hero.url }}') center/cover no-repeat;">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-3">Свяжитесь с нами</h1>
+                <p class="lead">Готовы обсудить ваш проект? Мы всегда на связи!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacts Section -->
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Info -->
+            <div class="col-lg-5">
+                <h2 class="mb-4">Наши контакты</h2>
+                
+                <div class="mb-4">
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="card-icon me-3">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <div>
+                            <h5>Телефон</h5>
+                            <p class="text-muted mb-0">
+                                <a href="tel:+79237743313" class="text-decoration-none">8-923-774-33-13</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="card-icon me-3">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <div>
+                            <h5>Email</h5>
+                            <p class="text-muted mb-0">
+                                <a href="mailto:923sen@mail.ru" class="text-decoration-none">923sen@mail.ru</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="card-icon me-3">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Адрес офиса</h5>
+                            <p class="text-muted mb-0">
+                                644070, г. Омск,<br>
+                                ул. Фурманова, д.7
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="card-icon me-3">
+                            <i class="bi bi-clock"></i>
+                        </div>
+                        <div>
+                            <h5>Время работы</h5>
+                            <p class="text-muted mb-0">
+                                Пн-Пт: 9:00 - 18:00<br>
+                                Сб-Вс: выходной
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="card-custom">
+                    <h3 class="mb-4">Оставьте заявку</h3>
+                    <p class="text-muted mb-4">Заполните форму ниже, и мы свяжемся с вами в ближайшее время для бесплатной консультации.</p>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                {{ form.name }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.phone }}
+                            </div>
+                            <div class="col-12">
+                                {{ form.email }}
+                            </div>
+                            <div class="col-12">
+                                {{ form.category }}
+                            </div>
+                            <div class="col-12">
+                                {{ form.message }}
+                            </div>
+                            <div class="col-12">
+                                 <div class="form-check">
+                                     {{ form.agree_policy }}
+                                     <label class="form-check-label" for="{{ form.agree_policy.id_for_label }}">
+                                         Я согласен с <a href="{% url 'text_page' 'policy' %}" target="_blank">политикой конфиденциальности</a>
+                                     </label>
+                                 </div>
+                                 <div class="form-check">
+                                     {{ form.agree_processing }}
+                                     <label class="form-check-label" for="{{ form.agree_processing.id_for_label }}">
+                                         Я согласен на <a href="{% url 'text_page' 'soglasie' %}" target="_blank">обработку персональных данных</a>
+                                     </label>
+                                 </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-submit">
+                                    <i class="bi bi-send"></i> Отправить заявку
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section (Optional - можно добавить позже) -->
+{% endblock %}
+

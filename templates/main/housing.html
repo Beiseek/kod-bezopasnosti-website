@@ -1,0 +1,237 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Умный двор: безопасность и спокойствие для жителей - Код Безопасности{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%), url('{{ site_images.housing_hero.url }}') center/cover no-repeat;">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-3">Умный двор: безопасность и спокойствие для жителей</h1>
+                <p class="lead">Современное видеонаблюдение с ИИ для защиты территории, парковки и мест общего пользования. Создайте среду, где комфортно жить.</p>
+                <a href="#consultation-form" class="btn btn-primary-custom btn-lg mt-3">
+                    <i class="bi bi-calculator"></i> Рассчитать для моего ЖК
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problems Section -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Знакомые ситуации в вашем дворе?</h2>
+        
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-car-front"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Постоянные конфликты на парковке</h4>
+                        <p>Занятие чужих мест, повреждение автомобилей, незаконная эвакуация.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-paint-bucket"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Порча имущества и вандализм</h4>
+                        <p>На детских площадках, в подъездах и лифтах без доказательств и возможности найти виновных.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-door-open"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Незаконные проникновения</h4>
+                        <p>В подъезды, на чердаки и в технические помещения.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-shield-exclamation"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Беспокойство за безопасность</h4>
+                        <p>Детей и пожилых людей, гуляющих во дворе в вечернее время.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-file-earmark-x"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Сложности с доказательной базой</h4>
+                        <p>Для обращения в полицию и страховые компании при кражах, ДТП и других инцидентах.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section with Alternating Columns -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Комфортная и защищенная среда для жизни</h2>
+        
+        <!-- Item 1: Text + Image -->
+        <div class="solution-alternating fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-car-front-fill text-primary me-2"></i> 1. Интеллектуальный контроль парковки</h4>
+                <p>Автоматическое распознавание номерных знаков, фиксация нарушений парковки и уведомление службы безопасности. Разделение на резидентные и гостевые места. Больше никаких конфликтов и поиска виновных в повреждении машин.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.housing_solution_1.url }}" alt="Контроль парковки" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 2: Image + Text -->
+        <div class="solution-alternating reverse fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-shield-check text-primary me-2"></i> 2. Защита имущества от вандализма</h4>
+                <p>Система в реальном времени обнаруживает акты порчи (рисование граффити, поломка оборудования) на детских площадках, в подъездах и мгновенно отправляет оповещение. У вас всегда будут четкие видео-доказательства для привлечения к ответственности.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.housing_solution_2.url }}" alt="Защита от вандализма" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 3: Text + Image -->
+        <div class="solution-alternating fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-door-closed text-primary me-2"></i> 3. Контроль доступа в подъезды и зоны общего пользования</h4>
+                <p>Оповещение о проникновении в подъезд в нерабочее время, фиксация доступа в технические помещения. Вы всегда будете знать, кто и когда заходил в дом.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.housing_solution_3.url }}" alt="Контроль доступа" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 4: Image + Text -->
+        <div class="solution-alternating reverse fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-emoji-smile text-primary me-2"></i> 4. Безопасность детских площадок и зон отдыха</h4>
+                <p>Мониторинг активности в зонах для детей, оповещение о нештатных ситуациях (падения, конфликты). Обеспечьте родителям спокойствие, а детям — безопасную среду для игр.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.housing_solution_4.url }}" alt="Детские площадки" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 5: Text + Image -->
+        <div class="solution-alternating fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-search text-primary me-2"></i> 5. Мгновенный поиск событий во дворе</h4>
+                <p>Найдите любой инцидент за секунды: кто поцарапал машину, куда ушёл ребенок, что произошло на парковке. Просто введите описание человека или автомобиля — система покажет все моменты на интерактивной карте двора.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.housing_solution_5.url }}" alt="Поиск событий" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Превратите двор в безопасное и технологичное пространство</h2>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-graph-down-arrow"></i>
+                    </div>
+                    <h4>Снижение числа конфликтов</h4>
+                    <p>На 80% за счет наличия неоспоримых доказательств.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-house-up"></i>
+                    </div>
+                    <h4>Повышение стоимости</h4>
+                    <p>Недвижимости в вашем комплексе.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-cash-coin"></i>
+                    </div>
+                    <h4>Снижение затрат</h4>
+                    <p>На обслуживание благодаря оперативному пресечению вандализма.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-heart"></i>
+                    </div>
+                    <h4>Спокойствие жителей</h4>
+                    <p>Как ключевой фактор качества жизни.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA & Form Section -->
+    <section class="cta-section" id="consultation-form" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(15, 23, 42, 0.85) 100%), url('{{ site_images.cta_background.url }}') center/cover no-repeat;">
+    <div class="container">
+        <h2>Хотите сделать ваш двор по-настоящему безопасным?</h2>
+        <p class="lead">Получите коммерческое предложение с расчетом для вашего жилого комплекса.</p>
+        
+        <div class="form-modal">
+            <h3 class="text-dark mb-4 text-center">Получить коммерческое предложение</h3>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.name }}
+                </div>
+                <div class="mb-3">
+                    {{ form.phone }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    {{ form.message }}
+                </div>
+                {{ form.category.as_hidden }}
+                 <div class="mb-3 form-check">
+                     {{ form.agree_policy }}
+                     <label class="form-check-label text-dark" for="{{ form.agree_policy.id_for_label }}">
+                         Я согласен с <a href="{% url 'text_page' 'policy' %}" target="_blank">политикой конфиденциальности</a>
+                     </label>
+                 </div>
+                 <div class="mb-3 form-check">
+                     {{ form.agree_processing }}
+                     <label class="form-check-label text-dark" for="{{ form.agree_processing.id_for_label }}">
+                         Я согласен на <a href="{% url 'text_page' 'soglasie' %}" target="_blank">обработку персональных данных</a>
+                     </label>
+                 </div>
+                <button type="submit" class="btn btn-submit">
+                    <i class="bi bi-send"></i> Отправить заявку
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

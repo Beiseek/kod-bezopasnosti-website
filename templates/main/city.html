@@ -1,0 +1,226 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Интеллектуальные системы видеонаблюдения для безопасного и умного города{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%), url('{{ site_images.city_hero.url }}') center/cover no-repeat;">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="display-3">Интеллектуальные системы видеонаблюдения для безопасного и умного города</h1>
+                <p class="lead">Повышение общественной безопасности, анализ транспортных потоков и управление городской инфраструктурой с помощью передовой видеоаналитики.</p>
+                <a href="#consultation-form" class="btn btn-primary-custom btn-lg mt-3">
+                    <i class="bi bi-file-earmark-pdf"></i> Получить презентацию для муниципалитета
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Challenges Section -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Какие вызовы стоят перед современным городом?</h2>
+        
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-shield-exclamation"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Сложность борьбы с уличной преступностью</h4>
+                        <p>Недостаточная эффективность традиционных методов патрулирования и контроля.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                     <div class="icon-wrapper">
+                         <i class="bi bi-car-front"></i>
+                     </div>
+                    <div class="content-wrapper">
+                        <h4>Пробки и ДТП</h4>
+                        <p>Отсутствие инструментов для оперативного управления трафиком.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-tools"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Слабая эффективность коммунальных служб</h4>
+                        <p>Отсутствие контроля качества и скорости работы городских служб.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Организация массовых мероприятий</h4>
+                        <p>Обеспечение безопасности в общественных пространствах.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Необходимость доказательной базы</h4>
+                        <p>Для разрешения спорных ситуаций (ДТП, порча имущества).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section with Alternating Columns -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Технологии для повышения качества городской жизни</h2>
+        
+        <!-- Item 1: Text + Image -->
+        <div class="solution-alternating fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-shield-check text-primary me-2"></i> 1. Мониторинг криминогенной обстановки</h4>
+                <p>Автоматическое распознавание правонарушений (драки, кражи, акты вандализма) в реальном времени и оперативное оповещение патрулей. Мгновенный поиск людей и автомобилей по ориентировкам.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.city_solution_1.url }}" alt="Мониторинг безопасности" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 2: Image + Text -->
+        <div class="solution-alternating reverse fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-stoplights text-primary me-2"></i> 2. Интеллектуальное управление трафиком и ПДД</h4>
+                <p>Подсчет транспорта, определение заторов, автоматическая адаптивная регулировка светофоров для их устранения. Фиксация нарушений ПДД и детальный анализ обстоятельств ДТП.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.city_solution_2.url }}" alt="Управление трафиком" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 3: Text + Image -->
+        <div class="solution-alternating fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-people-fill text-primary me-2"></i> 3. Безопасность общественных пространств</h4>
+                <p>Мониторинг скоплений людей, обнаружение оставленных предметов и подозрительного поведения для обеспечения безопасности на массовых мероприятиях, в парках и на стадионах.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.city_solution_3.url }}" alt="Общественные пространства" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 4: Image + Text -->
+        <div class="solution-alternating reverse fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-truck text-primary me-2"></i> 4. Контроль работы городских служб</h4>
+                <p>Фиксация времени и маршрутов прибытия спецтранспорта (скорая, МЧС, коммунальщики), мониторинг качества уборки улиц и вывоза мусора.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.city_solution_4.url }}" alt="Контроль служб" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Результаты внедрения интеллектуальной системы</h2>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h4>Повышение раскрываемости</h4>
+                    <p>Уличных преступлений за счет оперативного реагирования.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-cone-striped"></i>
+                    </div>
+                    <h4>Снижение загруженности</h4>
+                    <p>Дорог и количества ДТП.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <h4>Повышение эффективности</h4>
+                    <p>Работы городских и экстренных служб.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-house-heart"></i>
+                    </div>
+                    <h4>Безопасная среда</h4>
+                    <p>Для жителей и гостей города.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA & Form Section -->
+    <section class="cta-section" id="consultation-form" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(15, 23, 42, 0.85) 100%), url('{{ site_images.cta_background.url }}') center/cover no-repeat;">
+    <div class="container">
+        <h2>Готовы сделать ваш город безопаснее и умнее?</h2>
+        <p class="lead">Подготовим для вас развернутую презентацию с расчетом экономического и социального эффекта.</p>
+        
+        <div class="form-modal">
+            <h3 class="text-dark mb-4 text-center">Получить презентацию для муниципалитета</h3>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.name }}
+                </div>
+                <div class="mb-3">
+                    {{ form.phone }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    {{ form.message }}
+                </div>
+                 {{ form.category }}
+                 <div class="mb-3 form-check">
+                     {{ form.agree_policy }}
+                     <label class="form-check-label text-dark" for="{{ form.agree_policy.id_for_label }}">
+                         Я согласен с <a href="{% url 'text_page' 'policy' %}" target="_blank">политикой конфиденциальности</a>
+                     </label>
+                 </div>
+                 <div class="mb-3 form-check">
+                     {{ form.agree_processing }}
+                     <label class="form-check-label text-dark" for="{{ form.agree_processing.id_for_label }}">
+                         Я согласен на <a href="{% url 'text_page' 'soglasie' %}" target="_blank">обработку персональных данных</a>
+                     </label>
+                 </div>
+                <button type="submit" class="btn btn-submit">
+                    <i class="bi bi-send"></i> Отправить заявку
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

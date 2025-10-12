@@ -1,0 +1,654 @@
+:root {
+    --primary-blue: #1E3A8A;
+    --secondary-blue: #3B82F6;
+    --light-blue: #DBEAFE;
+    --dark-bg: #0F172A;
+    --light-gray: #F8FAFC;
+    --text-dark: #1E293B;
+    --text-gray: #64748B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--primary-blue) !important;
+}
+
+.nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.nav-link:hover {
+    color: var(--primary-blue) !important;
+}
+
+.btn-primary-custom {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    background: var(--secondary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-bg) 100%);
+    color: white;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    z-index: 0;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-section .lead {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+/* Section Styles */
+.section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--primary-blue);
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Card Styles */
+.card-custom {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+    height: 100%;
+    padding: 2rem;
+}
+
+.card-custom:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--light-blue);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: var(--primary-blue);
+}
+
+.card-custom h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+.card-custom p, .card-custom ul {
+    color: var(--text-gray);
+    line-height: 1.8;
+}
+
+/* Problem Section */
+.problem-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-blue);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.problem-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: translateX(5px);
+}
+
+/* Solution List */
+.solution-list {
+    list-style: none;
+    padding: 0;
+}
+
+.solution-list li {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-blue);
+}
+
+.solution-list li strong {
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+}
+
+/* CTA Section */
+.cta-section {
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.cta-phone {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 2rem 0;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.cta-phone:hover {
+    color: var(--light-blue);
+}
+
+/* Form Styles */
+.form-modal {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 0.8rem;
+    border: 1px solid #E2E8F0;
+    margin-bottom: 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.2rem rgba(30, 58, 138, 0.15);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: var(--secondary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.3);
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-bg);
+    color: white;
+    padding: 3rem 0 1rem 0;
+}
+
+.footer h5 {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--light-blue);
+}
+
+.footer a {
+    color: #94A3B8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    color: #94A3B8;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Alert Messages */
+.alert {
+    border-radius: 8px;
+    border: none;
+    padding: 1rem 1.5rem;
+}
+
+.alert-success {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .cta-phone {
+        font-size: 1.8rem;
+    }
+}
+
+/* Icon Styles */
+.icon-business::before { content: '💼'; }
+.icon-industry::before { content: '🏭'; }
+.icon-city::before { content: '🏙️'; }
+.icon-housing::before { content: '🏘️'; }
+.icon-security::before { content: '🛡️'; }
+.icon-analytics::before { content: '📊'; }
+.icon-ai::before { content: '🤖'; }
+.icon-support::before { content: '🔧'; }
+.icon-search::before { content: '🔍'; }
+.icon-alert::before { content: '⚠️'; }
+
+/* Problem Section with Images */
+.problem-section-with-images {
+    padding: 5rem 0;
+}
+
+.problem-item {
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.problem-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.problem-item-content {
+    flex: 1;
+}
+
+.problem-item-image {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.problem-item-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Solution Section with Two Columns */
+.solution-two-columns {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+.solution-content {
+    flex: 1;
+}
+
+.solution-image {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.solution-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Enhanced Advantages Cards */
+.advantage-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.advantage-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.advantage-card:hover::before {
+    opacity: 1;
+}
+
+.advantage-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--secondary-blue);
+    box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+}
+
+.advantage-card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.advantage-card:hover .advantage-card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.advantage-card h3 {
+    position: relative;
+    z-index: 1;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.advantage-card p {
+    position: relative;
+    z-index: 1;
+    color: var(--text-gray);
+}
+
+/* Logo in Header */
+/* Header Logo - В 2 раза больше */
+.logo-image-header {
+    height: 80px;
+    width: auto;
+}
+
+/* Footer Logo - В 4 раза больше чем было */
+.logo-image-footer {
+    height: 160px;
+    width: auto;
+}
+
+/* Footer Description - Белый текст */
+.footer-description {
+    color: #ffffff !important;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Problem Card with Icon (for Business/Industry pages) */
+.problem-card-icon {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+    transition: all 0.3s ease;
+}
+
+.problem-card-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.problem-card-icon .icon-wrapper {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--light-blue);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+}
+
+.problem-card-icon .content-wrapper {
+    flex: 1;
+}
+
+.problem-card-icon h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.problem-card-icon p {
+    color: var(--text-gray);
+    margin: 0;
+}
+
+/* Solution Alternating (Text-Image-Image-Text) */
+.solution-alternating {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.solution-alternating.reverse {
+    flex-direction: row-reverse;
+}
+
+.solution-alternating-content {
+    flex: 1;
+}
+
+.solution-alternating-content h4 {
+    color: var(--primary-blue);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.solution-alternating-content p {
+    color: var(--text-gray);
+    line-height: 1.8;
+}
+
+.solution-alternating-image {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.solution-alternating-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.solution-alternating-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .problem-item {
+        flex-direction: column !important;
+    }
+    
+    .solution-two-columns {
+        flex-direction: column;
+    }
+    
+    .solution-alternating,
+    .solution-alternating.reverse {
+        flex-direction: column;
+    }
+    
+    .problem-card-icon {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .advantage-card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+}
+
+/* Checkbox alignment fixes */
+.form-check {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.form-check-input {
+    margin-top: 0.25rem;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+.form-check-label {
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+

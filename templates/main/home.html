@@ -1,0 +1,206 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Код Безопасности - Умное видеонаблюдение с ИИ для бизнеса и города{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%), url('{{ site_images.home_hero.url }}') center/cover no-repeat;">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-3">Умное видеонаблюдение с ИИ для бизнеса и города</h1>
+                <p class="lead">Полный контроль и прогнозирование рисков. Решения «под ключ» для безопасности объектов любой сложности.</p>
+                <a href="#consultation-form" class="btn btn-primary-custom btn-lg mt-3">
+                    <i class="bi bi-chat-dots"></i> Получить бесплатную консультацию
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem Section with Images -->
+<section class="section problem-section-with-images bg-light">
+    <div class="container">
+        <h2 class="section-title">Знакомы ли вам эти ситуации?</h2>
+        
+        <!-- Для города -->
+        <div class="problem-item fade-in-up">
+            <div class="problem-item-content">
+                 <h3><i class="bi bi-geo-alt text-primary"></i> Для города и общественных пространств</h3>
+                <ul class="list-unstyled mt-3">
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Необходимость мгновенно реагировать на правонарушения (кражи, драки) и находить людей/транспорт</li>
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Сложности с анализом транспортных потоков и организацией безопасных мероприятий</li>
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Рост числа ДТП и нарушений ПДД из-за отсутствия превентивной аналитики</li>
+                </ul>
+            </div>
+            <div class="problem-item-image">
+                <img src="{{ site_images.home_problem_city.url }}" alt="Безопасный город" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Для бизнеса -->
+        <div class="problem-item fade-in-up">
+            <div class="problem-item-content">
+                <h3><i class="bi bi-briefcase text-primary"></i> Для бизнеса и промышленности</h3>
+                <ul class="list-unstyled mt-3">
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Финансовые потери от хищений на складах и предприятиях</li>
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Неэффективное использование рабочего времени сотрудников</li>
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Риски несанкционированного доступа и нарушение норм пожарной безопасности</li>
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Непонимание потоков людей и зон коммерческой активности</li>
+                </ul>
+            </div>
+            <div class="problem-item-image">
+                <img src="{{ site_images.home_problem_business.url }}" alt="Бизнес безопасность" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Для ЖК -->
+        <div class="problem-item fade-in-up">
+            <div class="problem-item-content">
+                <h3><i class="bi bi-house text-primary"></i> Для жилых комплексов и ТСЖ</h3>
+                <ul class="list-unstyled mt-3">
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Постоянные конфликты и порча имущества во дворах и на парковках без доказательной базы</li>
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Отсутствие реального контроля за безопасностью детей и подростков на территории</li>
+                    <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i> Неспособность быстро разрешать спорные ситуации</li>
+                </ul>
+            </div>
+            <div class="problem-item-image">
+                <img src="{{ site_images.home_problem_housing.url }}" alt="Жилой комплекс" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solution Section with Two Columns -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Мы обеспечиваем безопасность, которая работает на опережение</h2>
+        <p class="section-subtitle">Наши интеллектуальные системы на базе ИИ превращают видеопоток в мощный инструмент для принятия решений. Это не просто запись происшествий, а их предотвращение и глубокая аналитика для повышения эффективности.</p>
+        
+        <div class="solution-two-columns fade-in-up">
+            <div class="solution-content">
+                <div class="mb-4">
+                    <h4><i class="bi bi-shield-check text-primary me-2"></i> 1. Полный контроль территории</h4>
+                    <p>Автоматическое обнаружение подозрительных действий, несанкционированного проникновения и правонарушений в режиме реального времени.</p>
+                </div>
+                <div class="mb-4">
+                    <h4><i class="bi bi-graph-up text-primary me-2"></i> 2. Готовая аналитика для прибыли</h4>
+                    <p>Подсчет посетителей, анализ зон активности, контроль рабочего времени и выявление схем хищений.</p>
+                </div>
+                <div class="mb-4">
+                    <h4><i class="bi bi-search text-primary me-2"></i> 3. Мгновенный поиск и доказательства</h4>
+                    <p>Находите нужные события за секунды по людям, автомобилям или объектам, а не часами просматривая записи.</p>
+                </div>
+                <div class="mb-4">
+                    <h4><i class="bi bi-tools text-primary me-2"></i> 4. Решения «под ключ»</h4>
+                    <p>Мы берем на себя все: от проектирования и монтажа до обучения ваших сотрудников.</p>
+                </div>
+            </div>
+            <div class="solution-image">
+                <img src="{{ site_images.home_solution_ai.url }}" alt="AI система безопасности" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="#consultation-form" class="btn btn-primary-custom btn-lg">
+                <i class="bi bi-chat-dots"></i> Получить бесплатную консультацию
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced Advantages Section -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Почему выбирают нашу систему?</h2>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+                    <h3>Решение «под ключ» за 10 дней</h3>
+                    <p>От первого звонка до работающей системы. Берем на себя подбор оборудования, монтаж и настройку аналитики.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <h3>ИИ, который решает ваши бизнес-задачи</h3>
+                    <p>Мы не просто настраиваем камеры. Мы обучаем систему под ваши цели: снижение краж, подсчет посетителей, контроль доступа.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    <h3>Готовые пакеты «всё включено»</h3>
+                    <p>Не нужно разбираться в технических деталях. Выбирайте пакет под свой объект — вы сразу знаете итоговую стоимость и результат.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <h3>Техподдержка 24/7 и постоянное обновление</h3>
+                    <p>Мы всегда на связи. Ваша система будет постоянно совершенствоваться и соответствовать новым требованиям.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA & Form Section -->
+<section class="cta-section" id="consultation-form" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(15, 23, 42, 0.85) 100%), url('{{ site_images.cta_background.url }}') center/cover no-repeat;">
+    <div class="container">
+        <h2>Готовы обеспечить безопасность вашего объекта?</h2>
+        <p class="lead">Свяжитесь с нами для бесплатной консультации и расчета стоимости решения.</p>
+        <a href="tel:88000000000" class="cta-phone">
+            <i class="bi bi-telephone"></i> 8-800-000-00-00
+        </a>
+        
+        <div class="form-modal">
+            <h3 class="text-dark mb-4 text-center">Оставьте заявку</h3>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.name }}
+                </div>
+                <div class="mb-3">
+                    {{ form.phone }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    {{ form.message }}
+                </div>
+                <div class="mb-3">
+                    {{ form.category }}
+                </div>
+                 <div class="mb-3 form-check">
+                     {{ form.agree_policy }}
+                     <label class="form-check-label text-dark" for="{{ form.agree_policy.id_for_label }}">
+                         Я согласен с <a href="{% url 'text_page' 'policy' %}" target="_blank">политикой конфиденциальности</a>
+                     </label>
+                 </div>
+                 <div class="mb-3 form-check">
+                     {{ form.agree_processing }}
+                     <label class="form-check-label text-dark" for="{{ form.agree_processing.id_for_label }}">
+                         Я согласен на <a href="{% url 'text_page' 'soglasie' %}" target="_blank">обработку персональных данных</a>
+                     </label>
+                 </div>
+                <button type="submit" class="btn btn-submit">
+                    <i class="bi bi-send"></i> Отправить заявку
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

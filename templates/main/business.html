@@ -1,0 +1,237 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Умное видеонаблюдение для бизнеса - Код Безопасности{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%), url('{{ site_images.business_hero.url }}') center/cover no-repeat;">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-3">Умное видеонаблюдение для вашего бизнеса</h1>
+                <p class="lead">Превратите безопасность в инструмент роста прибыли. Снижайте потери, оптимизируйте процессы и увеличивайте доход.</p>
+                <a href="#consultation-form" class="btn btn-primary-custom btn-lg mt-3">
+                    <i class="bi bi-calculator"></i> Получить расчет для моего бизнеса
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problems Section -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Ежедневно ваша компания теряет деньги из-за неочевидных причин?</h2>
+        
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-exclamation-triangle"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Производственный брак и хищения</h4>
+                        <p>Невозможно отследить момент появления дефекта или пропажи сырья.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Неконтролируемый персонал</h4>
+                        <p>Нарушения охраны труда, «забытые» пропуски, низкая производительность на удаленных участках.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-cart"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Слепота в торговле</h4>
+                        <p>Не понимаете, как клиенты перемещаются по залу и какой товар их действительно интересует.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="problem-card-icon fade-in-up">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="content-wrapper">
+                        <h4>Конфликты без доказательств</h4>
+                        <p>Споры о порче имущества, кражах и инцидентах затягиваются и не решаются.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section with Alternating Columns -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Мы автоматизируем контроль и даем вам цифры для принятия решений</h2>
+        
+        <!-- Item 1: Text + Image -->
+        <div class="solution-alternating fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-clipboard-check text-primary me-2"></i> 1. Контроль качества и брака на производстве</h4>
+                <p>Система анализирует процесс в реальном времени и фиксирует отклонения от нормы. Вы получаете отчеты и оперативные оповещения о появлении дефектов, чтобы мгновенно устранить причину.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.business_solution_1.url }}" alt="Контроль производства" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 2: Image + Text -->
+        <div class="solution-alternating reverse fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-person-badge text-primary me-2"></i> 2. Аналитика эффективности персонала и доступов</h4>
+                <p>Автоматический учет рабочего времени, контроль доступа в рабочую зону для персонала и мониторинг соблюдения регламентов. Повышение дисциплины и безопасность без увеличения штата охраны.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.business_solution_2.url }}" alt="Аналитика персонала" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 3: Text + Image -->
+        <div class="solution-alternating fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-boxes text-primary me-2"></i> 3. Точный подсчет товара и сырья</h4>
+                <p>ИИ считает единицы продукции на конвейере, паллеты на складе и отслеживает перемещение материальных ценностей, минимизируя ошибки и предотвращая хищения.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.business_solution_3.url }}" alt="Складская аналитика" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 4: Image + Text -->
+        <div class="solution-alternating reverse fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-shield-check text-primary me-2"></i> 4. Обеспечение стандартов охраны труда</h4>
+                <p>Система автоматически распознает нарушения (отсутствие каски, вход в запретную зону) и отправляет мгновенный сигнал ответственному, предотвращая травмы и штрафы.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.business_solution_4.url }}" alt="Охрана труда" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 5: Text + Image -->
+        <div class="solution-alternating fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-graph-up-arrow text-primary me-2"></i> 5. Тепловые карты и анализ поведения покупателей</h4>
+                <p>Узнайте, в каких зонах магазина клиенты задерживаются дольше всего, какой товар пользуется наибольшим спросом, и оптимизируйте выкладку и рекламу для роста продаж.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.business_solution_5.url }}" alt="Анализ покупателей" loading="lazy">
+            </div>
+        </div>
+        
+        <!-- Item 6: Image + Text -->
+        <div class="solution-alternating reverse fade-in-up">
+            <div class="solution-alternating-content">
+                <h4><i class="bi bi-camera-video text-primary me-2"></i> 6. Формирование неоспоримой доказательной базы</h4>
+                <p>Мгновенный поиск любого события по объекту, человеку или автомобилю. Разрешайте конфликтные ситуации в свою пользу с помощью четких видео-доказательств.</p>
+            </div>
+            <div class="solution-alternating-image">
+                <img src="{{ site_images.business_solution_6.url }}" alt="Видео доказательства" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Вы получаете не просто камеры, а готовый бизнес-инструмент</h2>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-graph-down-arrow"></i>
+                    </div>
+                    <h4>Снижение потерь</h4>
+                    <p>За счет предотвращения краж, брака и неэффективного использования времени.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-clipboard-data"></i>
+                    </div>
+                    <h4>Готовая аналитика</h4>
+                    <p>В 1 клик для принятия управленческих решений, а не тонны бесполезного видео.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+                    <h4>Решение «под ключ» за 10 дней</h4>
+                    <p>Мы берем на себя все работы — от проекта до обучения ваших сотрудников.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="advantage-card fade-in-up">
+                    <div class="advantage-card-icon">
+                        <i class="bi bi-box-seam"></i>
+                    </div>
+                    <h4>Пакеты «всё включено»</h4>
+                    <p>Вы знаете точную стоимость с первого дня, без скрытых платежей.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA & Form Section -->
+    <section class="cta-section" id="consultation-form" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(15, 23, 42, 0.85) 100%), url('{{ site_images.cta_background.url }}') center/cover no-repeat;">
+    <div class="container">
+        <h2>Готовы повысить прибыль вашей компании?</h2>
+        <p class="lead">Рассчитаем стоимость решения для вашей задачи и продемонстрируем работу системы на примере вашего бизнеса.</p>
+        
+        <div class="form-modal">
+            <h3 class="text-dark mb-4 text-center">Получить бесплатную консультацию и расчет</h3>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.name }}
+                </div>
+                <div class="mb-3">
+                    {{ form.phone }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    {{ form.message }}
+                </div>
+                {{ form.category.as_hidden }}
+                 <div class="mb-3 form-check">
+                     {{ form.agree_policy }}
+                     <label class="form-check-label text-dark" for="{{ form.agree_policy.id_for_label }}">
+                         Я согласен с <a href="{% url 'text_page' 'policy' %}" target="_blank">политикой конфиденциальности</a>
+                     </label>
+                 </div>
+                 <div class="mb-3 form-check">
+                     {{ form.agree_processing }}
+                     <label class="form-check-label text-dark" for="{{ form.agree_processing.id_for_label }}">
+                         Я согласен на <a href="{% url 'text_page' 'soglasie' %}" target="_blank">обработку персональных данных</a>
+                     </label>
+                 </div>
+                <button type="submit" class="btn btn-submit">
+                    <i class="bi bi-send"></i> Отправить заявку
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
