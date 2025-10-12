@@ -58,8 +58,8 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# db.sqlite3  # Включаем базу данных в репозиторий
+# db.sqlite3-journal
 
 # Flask stuff:
 instance/
@@ -130,7 +130,7 @@ dmypy.json
 
 # Django specific
 staticfiles/
-media/
+# media/  # Включаем медиа файлы в репозиторий
 
 # IDE
 .vscode/
