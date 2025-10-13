@@ -369,10 +369,20 @@ body {
     /* Мобильное меню - номер и кнопка в колонку */
     .right-actions {
         flex-direction: column !important;
-        align-items: stretch !important;
+        align-items: center !important;
         gap: 15px !important;
         width: 100% !important;
         display: flex !important;
+    }
+    
+    .phone-wrapper {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .button-wrapper {
+        width: 100%;
+        text-align: center;
     }
     
     .header-phone {
