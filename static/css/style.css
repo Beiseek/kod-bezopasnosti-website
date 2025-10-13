@@ -377,12 +377,21 @@ body {
     
     .phone-wrapper {
         width: 100%;
-        text-align: center;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
     
     .button-wrapper {
         width: 100%;
-        text-align: center;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    .header-phone {
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     .header-phone {
