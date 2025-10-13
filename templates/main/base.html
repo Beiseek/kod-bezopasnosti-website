@@ -25,7 +25,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3.6">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=4.0">
     
     {% block extra_css %}{% endblock %}
 </head>
@@ -61,14 +61,10 @@
                     </li>
                 </ul>
                 <div class="right-actions d-flex align-items-center gap-3 ms-lg-3 flex-nowrap">
-                    <div class="phone-wrapper">
-                        <a href="tel:+79237743313" class="header-phone text-decoration-none">8-923-774-33-13</a>
-                    </div>
-                    <div class="button-wrapper">
-                        <a href="{% url 'home' %}#consultation-form" class="btn btn-primary-custom">
-                            Получить консультацию
-                        </a>
-                    </div>
+                    <a href="tel:+79237743313" class="header-phone text-decoration-none">8-923-774-33-13</a>
+                    <a href="{% url 'home' %}#consultation-form" class="btn btn-primary-custom">
+                        Получить консультацию
+                    </a>
                 </div>
             </div>
         </div>
