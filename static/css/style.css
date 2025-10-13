@@ -377,11 +377,13 @@ body {
     
     .header-phone {
         display: block !important;
-        margin-bottom: 15px !important;
-        margin-right: 0 !important;
+        margin: 0 auto 15px auto !important;
         white-space: nowrap;
         width: 100% !important;
         text-align: center !important;
+        padding: 0 !important;
+        float: none !important;
+        clear: both !important;
     }
     
     .btn-primary-custom {
@@ -402,6 +404,11 @@ body {
         clear: both !important;
         text-align: center !important;
         width: 100% !important;
+        margin: 0 auto 15px auto !important;
+        padding: 0 !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
     }
     
     .navbar-collapse .right-actions .btn-primary-custom {
@@ -410,6 +417,21 @@ body {
         clear: both !important;
         text-align: center !important;
         width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    /* СУПЕР ПРИНУДИТЕЛЬНОЕ ЦЕНТРИРОВАНИЕ НОМЕРА */
+    .navbar-collapse .header-phone,
+    .navbar-collapse a[href^="tel:"] {
+        text-align: center !important;
+        margin: 0 auto 15px auto !important;
+        display: block !important;
+        width: 100% !important;
+        float: none !important;
+        clear: both !important;
+        position: relative !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
     
     .hero-section h1 {
