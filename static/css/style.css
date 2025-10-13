@@ -30,6 +30,11 @@ body {
     transition: all 0.3s ease;
 }
 
+/* немного шире контейнер в шапке */
+.navbar .container {
+    max-width: 1420px; /* ещё +100px ширины */
+}
+
 .navbar-brand {
     font-weight: 700;
     font-size: 1.4rem;
@@ -39,6 +44,7 @@ body {
 .nav-link {
     color: var(--text-dark) !important;
     font-weight: 500;
+    font-size: 0.95rem; /* уменьшили размер меню */
     margin: 0 0.5rem;
     padding: 0.5rem 1rem !important;
     transition: color 0.3s ease;
@@ -46,6 +52,16 @@ body {
 
 .navbar-nav {
     align-items: center;
+    flex-wrap: nowrap; /* не переносить пункты меню */
+}
+
+.navbar .right-actions { flex-wrap: nowrap; }
+.navbar .nav-link { white-space: nowrap; }
+.navbar .btn-primary-custom { white-space: nowrap; }
+.header-phone { white-space: nowrap; }
+
+.navbar .collapse {
+    flex-wrap: nowrap; /* страховка от переноса правого блока */
 }
 
 .nav-link:hover {
@@ -309,6 +325,15 @@ body {
     padding-top: 1.5rem;
     text-align: center;
     color: #94A3B8;
+}
+
+/* телефон в шапке */
+.header-phone {
+    font-weight: 600;
+    color: #0d6efd;
+}
+.header-phone:hover {
+    color: #0b5ed7;
 }
 
 /* Animations */
