@@ -381,7 +381,7 @@ body {
         margin-right: 0 !important;
         white-space: nowrap;
         width: 100% !important;
-        text-align: left !important;
+        text-align: center !important;
     }
     
     .btn-primary-custom {
@@ -396,11 +396,20 @@ body {
         display: block !important;
     }
     
-    .navbar-collapse .right-actions .header-phone,
+    .navbar-collapse .right-actions .header-phone {
+        display: block !important;
+        float: none !important;
+        clear: both !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
     .navbar-collapse .right-actions .btn-primary-custom {
         display: block !important;
         float: none !important;
         clear: both !important;
+        text-align: center !important;
+        width: 100% !important;
     }
     
     .hero-section h1 {
