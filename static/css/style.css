@@ -367,15 +367,22 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     /* Мобильное меню - номер и кнопка в колонку */
-    .header-contact-info {
+    .right-actions {
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 10px;
+        gap: 10px !important;
+        width: 100% !important;
     }
     
-    .header-phone-number {
-        margin-bottom: 0 !important;
+    .header-phone {
+        margin-bottom: 10px !important;
         margin-right: 0 !important;
+        white-space: nowrap;
+    }
+    
+    .btn-primary-custom {
+        width: 100% !important;
+        text-align: center !important;
     }
     
     .hero-section h1 {
