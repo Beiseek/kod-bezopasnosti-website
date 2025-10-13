@@ -369,20 +369,38 @@ body {
     /* Мобильное меню - номер и кнопка в колонку */
     .right-actions {
         flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 10px !important;
+        align-items: stretch !important;
+        gap: 15px !important;
         width: 100% !important;
+        display: flex !important;
     }
     
     .header-phone {
-        margin-bottom: 10px !important;
+        display: block !important;
+        margin-bottom: 15px !important;
         margin-right: 0 !important;
         white-space: nowrap;
+        width: 100% !important;
+        text-align: left !important;
     }
     
     .btn-primary-custom {
+        display: block !important;
         width: 100% !important;
         text-align: center !important;
+        margin: 0 !important;
+    }
+    
+    /* Принудительно убираем flex для мобильных */
+    .navbar-collapse .right-actions {
+        display: block !important;
+    }
+    
+    .navbar-collapse .right-actions .header-phone,
+    .navbar-collapse .right-actions .btn-primary-custom {
+        display: block !important;
+        float: none !important;
+        clear: both !important;
     }
     
     .hero-section h1 {
