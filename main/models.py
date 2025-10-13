@@ -15,7 +15,7 @@ class ConsultationRequest(models.Model):
     
     name = models.CharField('Имя', max_length=100)
     phone = models.CharField('Телефон', max_length=20)
-    email = models.EmailField('Email')
+    email = models.EmailField('Email', blank=True, null=True)
     category = models.CharField('Категория', max_length=20, choices=CATEGORY_CHOICES, default='general')
     message = models.TextField('Сообщение', blank=True, null=True)
     consent = models.BooleanField('Согласие на обработку данных', default=False)

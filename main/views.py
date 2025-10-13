@@ -1,7 +1,37 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 from .forms import ConsultationRequestForm
 from .models import TextPage
+
+
+def send_consultation_email(consultation):
+    """Отправка уведомления о новой заявке на email"""
+    try:
+        subject = f'Новая заявка на консультацию от {consultation.name}'
+        message = f"""
+Новая заявка на консультацию:
+
+Имя: {consultation.name}
+Телефон: {consultation.phone}
+Email: {consultation.email or 'Не указан'}
+Категория: {consultation.get_category_display()}
+Сообщение: {consultation.message or 'Не указано'}
+Дата: {consultation.created_at.strftime('%d.%m.%Y %H:%M')}
+
+Ссылка на админку: http://91.229.8.148/admin/main/consultationrequest/
+        """
+        
+        send_mail(
+            subject,
+            message,
+            settings.DEFAULT_FROM_EMAIL,
+            ['923sen@mail.ru'],
+            fail_silently=False,
+        )
+    except Exception as e:
+        print(f"Ошибка отправки email: {e}")
 
 
 def home(request):
@@ -9,7 +39,8 @@ def home(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            form.save()
+            consultation = form.save()
+            send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('home')
     else:
@@ -23,7 +54,8 @@ def business(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            form.save()
+            consultation = form.save()
+            send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('business')
     else:
@@ -37,7 +69,8 @@ def industry(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            form.save()
+            consultation = form.save()
+            send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('industry')
     else:
@@ -51,7 +84,8 @@ def city(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            form.save()
+            consultation = form.save()
+            send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('city')
     else:
@@ -65,7 +99,8 @@ def housing(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            form.save()
+            consultation = form.save()
+            send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('housing')
     else:
@@ -79,7 +114,8 @@ def contacts(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            form.save()
+            consultation = form.save()
+            send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('contacts')
     else:

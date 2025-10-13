@@ -20,7 +20,7 @@ class ConsultationRequestForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ваше имя'}),
             'phone': forms.TextInput(attrs={'class': 'form-control phone-mask', 'placeholder': '+7 (XXX) XXX-XX-XX'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Ваш Email (необязательно)'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Ваш Email (необязательно)', 'required': False}),
             'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': 'Ваше сообщение (необязательно)'}),
             'category': forms.HiddenInput(),
         }

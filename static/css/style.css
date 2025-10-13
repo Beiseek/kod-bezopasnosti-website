@@ -366,6 +366,18 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Мобильное меню - номер и кнопка в колонку */
+    .header-contact-info {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+    
+    .header-phone-number {
+        margin-bottom: 0 !important;
+        margin-right: 0 !important;
+    }
+    
     .hero-section h1 {
         font-size: 2.5rem;
     }
