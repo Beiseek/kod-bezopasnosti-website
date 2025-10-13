@@ -377,14 +377,31 @@ body {
     
     .phone-wrapper {
         width: 100%;
-        display: grid !important;
-        place-items: center !important;
+        position: relative !important;
+        height: 40px !important;
+    }
+    
+    .phone-wrapper .header-phone {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     .button-wrapper {
         width: 100%;
-        display: grid !important;
-        place-items: center !important;
+        position: relative !important;
+        height: 40px !important;
+    }
+    
+    .button-wrapper .btn {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;
     }
     
     .header-phone {
