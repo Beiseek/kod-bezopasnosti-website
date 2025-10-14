@@ -52,7 +52,7 @@ server {
 
     location / {
         include proxy_params;
-        proxy_set_header Host $host;
+        proxy_set_header Host \$host;
         proxy_pass http://unix:SOCKET_PATH_PLACEHOLDER;
     }
 }
