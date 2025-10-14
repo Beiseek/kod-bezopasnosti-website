@@ -28,7 +28,8 @@ Email: {consultation.email or 'Не указан'}
             message,
             settings.DEFAULT_FROM_EMAIL,
             ['923sen@mail.ru'],
-            fail_silently=False,
+            fail_silently=True,
+            timeout=getattr(settings, 'EMAIL_TIMEOUT', 10),
         )
     except Exception as e:
         print(f"Ошибка отправки email: {e}")

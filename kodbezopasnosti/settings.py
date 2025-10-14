@@ -141,8 +141,9 @@ EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '923sen@mail.ru'
-EMAIL_HOST_PASSWORD = 'your_password_here'  # Замените на реальный пароль
+EMAIL_HOST_PASSWORD = 'Derega321'
 DEFAULT_FROM_EMAIL = '923sen@mail.ru'
+EMAIL_TIMEOUT = 10
 
 # CSRF settings для совместимости с Яндекс браузером
 CSRF_COOKIE_SECURE = False  # Для HTTP
