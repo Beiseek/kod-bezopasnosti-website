@@ -30,22 +30,22 @@ apt-get update -y
 DEBIAN_FRONTEND=noninteractive apt-get install -y nginx certbot python3-certbot-nginx
 
 info "Создаю доменную конфигурацию Nginx (IP доступ не трогаю)..."
-cat > "${NGINX_AVAILABLE}" <<EOF
+cat > "${NGINX_AVAILABLE}" <<'EOF'
 # Доменный сервер-блок (HTTP). SSL прикрутим certbot'ом потом
 server {
     listen 80;
-    server_name ${DOMAIN} ${WWW_DOMAIN};
+    server_name DOMAIN_PLACEHOLDER WWW_DOMAIN_PLACEHOLDER;
 
     client_max_body_size 50M;
 
     location /static/ {
-        alias ${STATIC_ROOT}/;
+        alias STATIC_ROOT_PLACEHOLDER/;
         expires 30d;
         add_header Cache-Control "public, immutable";
     }
 
     location /media/ {
-        alias ${MEDIA_ROOT}/;
+        alias MEDIA_ROOT_PLACEHOLDER/;
         expires 30d;
         add_header Cache-Control "public, immutable";
     }
@@ -53,13 +53,22 @@ server {
     location / {
         include proxy_params;
         proxy_set_header Host $host;
-        proxy_pass http://unix:${SOCKET_PATH};
+        proxy_pass http://unix:SOCKET_PATH_PLACEHOLDER;
     }
 }
 
 # Доступ по IP/дефолтный — оставляем как есть существующими конфигами.
 # Наша задача — добавить домен и не ломать IP.
 EOF
+
+# Подставим реальные пути и домены
+sed -i \
+  -e "s|DOMAIN_PLACEHOLDER|${DOMAIN}|g" \
+  -e "s|WWW_DOMAIN_PLACEHOLDER|${WWW_DOMAIN}|g" \
+  -e "s|STATIC_ROOT_PLACEHOLDER|${STATIC_ROOT}|g" \
+  -e "s|MEDIA_ROOT_PLACEHOLDER|${MEDIA_ROOT}|g" \
+  -e "s|SOCKET_PATH_PLACEHOLDER|${SOCKET_PATH}|g" \
+  "${NGINX_AVAILABLE}"
 
 ln -sf "${NGINX_AVAILABLE}" "${NGINX_ENABLED}"
 
@@ -101,8 +110,4 @@ RETRY
   success "Готово: будет автоповтор каждые 10 минут до успешной выдачи сертификата. Доступ по IP сохранён."
 fi
 
-success "Завершено. Проверь:
-- http://${DOMAIN}
-- http://${WWW_DOMAIN}
-- http://${SERVER_IP}
-После обновления DNS — HTTPS заработает автоматически."
+success "Завершено. Проверь:\n- http://${DOMAIN}\n- http://${WWW_DOMAIN}\n- http://${SERVER_IP}\nПосле обновления DNS — HTTPS заработает автоматически."
