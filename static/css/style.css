@@ -704,37 +704,36 @@ body {
     margin-bottom: 0;
 }
 
-/* New layout for medium-large screens (before it gets too crowded) */
+/* Layout for screens between 992px and 1450px using CSS Grid */
 @media (min-width: 992px) and (max-width: 1450px) {
-    /* Allow wrapping in the main navbar container */
     .navbar .navbar-collapse {
-        flex-wrap: wrap;
-        justify-content: center; /* Center content */
+        display: grid;
+        grid-template-areas:
+            "nav button"
+            "phone phone";
+        grid-template-columns: 1fr auto;
+        width: 100%;
+        gap: 8px 16px;
+        align-items: center;
     }
 
-    /* Make phone and button direct children of flex container for ordering */
     .navbar .right-actions {
         display: contents;
     }
 
-    /* Menu first */
     .navbar .navbar-nav {
-        order: 1;
+        grid-area: nav;
+        margin: 0 auto !important; /* Center nav links in their area */
     }
 
-    /* Button second, next to menu */
     .navbar .btn-primary-custom {
-        order: 2;
-        align-self: center; /* Vertically align with menu */
+        grid-area: button;
     }
 
-    /* Phone third, on a new line, centered */
     .navbar .header-phone {
-        order: 3;
-        flex-basis: 100%; /* Take full width to force new line */
+        grid-area: phone;
         text-align: center;
-        margin-top: 8px; /* Small space from the top line */
-        padding-bottom: 4px; /* Control header height */
+        padding-bottom: 4px; /* Control overall header height */
     }
 }
 
