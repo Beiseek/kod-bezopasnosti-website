@@ -704,6 +704,17 @@ body {
     margin-bottom: 0;
 }
 
+/* Hide phone below 1450px and keep header compact */
+@media (max-width: 1450px) {
+    .navbar .header-phone { display: none !important; }
+    /* ensure single-row layout when phone is hidden */
+    .navbar .navbar-collapse {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+}
+
 /* Layout for screens between 992px and 1450px using CSS Grid */
 @media (min-width: 992px) and (max-width: 1450px) {
     .navbar .navbar-collapse {
