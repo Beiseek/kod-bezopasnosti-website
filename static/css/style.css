@@ -704,32 +704,37 @@ body {
     margin-bottom: 0;
 }
 
-/* Large screens: from 1450px move phone to new line centered */
-@media (min-width: 1450px) {
+/* New layout for medium-large screens (before it gets too crowded) */
+@media (min-width: 992px) and (max-width: 1450px) {
+    /* Allow wrapping in the main navbar container */
+    .navbar .navbar-collapse {
+        flex-wrap: wrap;
+        justify-content: center; /* Center content */
+    }
+
+    /* Make phone and button direct children of flex container for ordering */
     .navbar .right-actions {
-        flex-wrap: wrap !important; /* Разрешаем перенос */
-        justify-content: flex-end; /* Выравниваем кнопку вправо */
-        flex-grow: 1; /* Позволяем контейнеру занять доступное место */
-        margin-left: auto; /* Дополнительно прижимаем вправо */
+        display: contents;
     }
 
-    /* Кнопка остается на первой строке справа */
-    .navbar .right-actions .btn-primary-custom {
-        order: 1 !important;
+    /* Menu first */
+    .navbar .navbar-nav {
+        order: 1;
     }
 
-    /* Телефон принудительно переносится, занимает всю ширину и центрируется */
-    .navbar .right-actions .header-phone {
-        order: 2 !important;
-        flex-basis: 100% !important;
-        text-align: center !important;
-        margin-top: 8px !important;
-        margin-bottom: 4px !important;
+    /* Button second, next to menu */
+    .navbar .btn-primary-custom {
+        order: 2;
+        align-self: center; /* Vertically align with menu */
     }
 
-    /* Убедимся, что меню навигации не мешает */
-    .navbar-nav {
-        flex-shrink: 0;
+    /* Phone third, on a new line, centered */
+    .navbar .header-phone {
+        order: 3;
+        flex-basis: 100%; /* Take full width to force new line */
+        text-align: center;
+        margin-top: 8px; /* Small space from the top line */
+        padding-bottom: 4px; /* Control header height */
     }
 }
 
