@@ -706,36 +706,30 @@ body {
 
 /* Large screens: from 1450px move phone to new line centered */
 @media (min-width: 1450px) {
-    /* Allow wrapping inside the navbar collapse */
-    .navbar .collapse {
-        flex-wrap: wrap;
-    }
-
-    /* Expose phone and button as direct flex items of the collapse */
     .navbar .right-actions {
-        display: contents;
+        flex-wrap: wrap !important; /* Разрешаем перенос */
+        justify-content: flex-end; /* Выравниваем кнопку вправо */
+        flex-grow: 1; /* Позволяем контейнеру занять доступное место */
+        margin-left: auto; /* Дополнительно прижимаем вправо */
     }
 
-    /* Ensure menu stays first */
-    .navbar .navbar-nav {
-        order: 1;
+    /* Кнопка остается на первой строке справа */
+    .navbar .right-actions .btn-primary-custom {
+        order: 1 !important;
     }
 
-    /* Keep the button on the first line */
-    .navbar .btn-primary-custom {
-        order: 2;
-        align-self: center;
-        margin-left: 12px;
+    /* Телефон принудительно переносится, занимает всю ширину и центрируется */
+    .navbar .right-actions .header-phone {
+        order: 2 !important;
+        flex-basis: 100% !important;
+        text-align: center !important;
+        margin-top: 8px !important;
+        margin-bottom: 4px !important;
     }
 
-    /* Move the phone to a new line and center it */
-    .navbar .header-phone {
-        order: 3;
-        flex-basis: 100%;
-        width: 100%;
-        text-align: center;
-        margin-top: 6px;
-        margin-bottom: 4px;
+    /* Убедимся, что меню навигации не мешает */
+    .navbar-nav {
+        flex-shrink: 0;
     }
 }
 
