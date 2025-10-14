@@ -704,3 +704,38 @@ body {
     margin-bottom: 0;
 }
 
+/* Large screens: from 1450px move phone to new line centered */
+@media (min-width: 1450px) {
+    /* Allow wrapping inside the navbar collapse */
+    .navbar .collapse {
+        flex-wrap: wrap;
+    }
+
+    /* Expose phone and button as direct flex items of the collapse */
+    .navbar .right-actions {
+        display: contents;
+    }
+
+    /* Ensure menu stays first */
+    .navbar .navbar-nav {
+        order: 1;
+    }
+
+    /* Keep the button on the first line */
+    .navbar .btn-primary-custom {
+        order: 2;
+        align-self: center;
+        margin-left: 12px;
+    }
+
+    /* Move the phone to a new line and center it */
+    .navbar .header-phone {
+        order: 3;
+        flex-basis: 100%;
+        width: 100%;
+        text-align: center;
+        margin-top: 6px;
+        margin-bottom: 4px;
+    }
+}
+
