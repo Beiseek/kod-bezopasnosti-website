@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from django.core.mail import send_mail
+from django.core.mail import send_mail, get_connection
 from django.conf import settings
 from .forms import ConsultationRequestForm
 from .models import TextPage
@@ -23,13 +23,15 @@ Email: {consultation.email or 'Не указан'}
 Ссылка на админку: http://91.229.8.148/admin/main/consultationrequest/
         """
         
+        # Django's send_mail doesn't take timeout directly; use connection
+        connection = get_connection(timeout=getattr(settings, 'EMAIL_TIMEOUT', 10))
         send_mail(
             subject,
             message,
             settings.DEFAULT_FROM_EMAIL,
             ['923sen@mail.ru'],
             fail_silently=True,
-            timeout=getattr(settings, 'EMAIL_TIMEOUT', 10),
+            connection=connection,
         )
     except Exception as e:
         print(f"Ошибка отправки email: {e}")
