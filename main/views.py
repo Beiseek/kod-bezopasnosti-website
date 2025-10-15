@@ -7,23 +7,38 @@ from .models import TextPage
 
 
 def send_consultation_email(consultation):
-    """Отправка уведомления о новой заявке на email"""
+    """Отправка уведомления о новой заявке на email (без права уронить запрос)."""
     try:
-        subject = f'Новая заявка на консультацию от {consultation.name}'
-        message = f"""
-Новая заявка на консультацию:
+        safe_name = (getattr(consultation, 'name', '') or '').strip()
+        safe_phone = (getattr(consultation, 'phone', '') or '').strip()
+        safe_email = (getattr(consultation, 'email', '') or '')
+        safe_message = (getattr(consultation, 'message', '') or '')
+        # Категория может быть пустой/нестандартной — не ломаемся
+        try:
+            safe_category = consultation.get_category_display()
+        except Exception:
+            safe_category = getattr(consultation, 'category', '') or ''
+        # Дата создаётся на save(); если что — не падаем
+        try:
+            safe_created = consultation.created_at.strftime('%d.%m.%Y %H:%M')
+        except Exception:
+            safe_created = ''
 
-Имя: {consultation.name}
-Телефон: {consultation.phone}
-Email: {consultation.email or 'Не указан'}
-Категория: {consultation.get_category_display()}
-Сообщение: {consultation.message or 'Не указано'}
-Дата: {consultation.created_at.strftime('%d.%m.%Y %H:%M')}
+        subject_base = f'Новая заявка на консультацию от {safe_name}'.strip()
+        subject = subject_base or 'Новая заявка на консультацию'
 
-Ссылка на админку: http://91.229.8.148/admin/main/consultationrequest/
-        """
-        
-        # Django's send_mail doesn't take timeout directly; use connection
+        message = (
+            "Новая заявка на консультацию:\n\n"
+            f"Имя: {safe_name}\n"
+            f"Телефон: {safe_phone}\n"
+            f"Email: {safe_email or 'Не указан'}\n"
+            f"Категория: {safe_category or '—'}\n"
+            f"Сообщение: {safe_message or 'Не указано'}\n"
+            f"Дата: {safe_created}\n\n"
+            "Ссылка на админку: https://kod-bezopasnosti.ru/admin/main/consultationrequest/\n"
+        )
+
+        # Используем явное подключение для таймаута
         connection = get_connection(timeout=getattr(settings, 'EMAIL_TIMEOUT', 10))
         send_mail(
             subject,
@@ -33,8 +48,9 @@ Email: {consultation.email or 'Не указан'}
             fail_silently=True,
             connection=connection,
         )
-    except Exception as e:
-        print(f"Ошибка отправки email: {e}")
+    except Exception:
+        # Никогда не пробрасываем ошибку наружу
+        pass
 
 
 def home(request):
