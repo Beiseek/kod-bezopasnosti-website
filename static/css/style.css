@@ -364,37 +364,47 @@ body {
     color: #065F46;
 }
 
-/* --- МОБИЛЬНОЕ МЕНЮ (БУРГЕР) --- */
-/* Финальное исправление: не трогаем display, чтобы JS мог закрывать меню. */
+/* --- МОБИЛЬНОЕ МЕНЮ: ЯДЕРНЫЙ ВАРИАНТ --- */
 @media (max-width: 991.98px) {
-  .navbar-collapse {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
-  }
+    /* ЗАСТАВЛЯЕМ ОСНОВНОЙ КОНТЕЙНЕР БЫТЬ КОЛОНКОЙ */
+    .navbar-expand-lg .navbar-collapse {
+        flex-direction: column !important;
+        align-items: center !important;
+        margin-top: 1rem;
+        border-top: 1px solid #eee;
+        padding-top: 1rem;
+    }
 
-  .navbar-nav {
-    align-items: center;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
+    /* Заставляем оба дочерних элемента занять всю ширину */
+    .navbar-collapse .navbar-nav,
+    .navbar-collapse .right-actions {
+        width: 100% !important;
+        justify-content: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
 
-  .right-actions {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem !important;
-  }
+    /* Центрируем ссылки */
+    .navbar-nav {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
 
-  .navbar .header-phone {
-    display: block !important;
-    margin: 0;
-  }
-  
-  .right-actions .btn-primary-custom {
-      width: 100%;
-      max-width: 280px;
-      text-align: center;
-  }
+    /* Внутренний блок с телефоном и кнопкой тоже делаем колонкой */
+    .right-actions {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    /* Показываем телефон, который скрыт на десктопе/планшете */
+    .navbar .header-phone {
+        display: block !important;
+    }
+
+    .right-actions .btn-primary-custom {
+        width: 100%;
+        max-width: 280px;
+    }
 }
 
 
