@@ -31,15 +31,12 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-light">
         <div class="container px-4">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'images/logo.png' %}" alt="Код Безопасности" class="logo-image-header">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <div class="d-flex justify-content-between align-items-center w-100">
                 <ul class="navbar-nav mx-auto flex-nowrap">
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Главная</a>
@@ -60,8 +57,8 @@
                         <a class="nav-link {% if request.resolver_match.url_name == 'contacts' %}active{% endif %}" href="{% url 'contacts' %}">Контакты</a>
                     </li>
                 </ul>
-                <!-- Телефон и кнопка только на десктопе -->
-                <div class="right-actions d-none d-lg-flex align-items-center gap-3 ms-lg-3 flex-nowrap">
+                <!-- Телефон и кнопка всегда видны -->
+                <div class="right-actions d-flex align-items-center gap-3 ms-lg-3 flex-nowrap">
                     <a href="tel:+79237743313" class="header-phone text-decoration-none">8-923-774-33-13</a>
                     <a href="{% url 'home' %}#consultation-form" class="btn btn-primary-custom">
                         Получить консультацию
