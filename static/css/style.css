@@ -365,51 +365,48 @@ body {
 }
 
 @media (max-width: 991px) {
+    /* Родительский контейнер для меню */
     .navbar-collapse {
-        margin-top: 15px;
-        display: block !important;          /* коллапс как блочный контейнер */
+        margin-top: 1rem;
         width: 100%;
+        /* display управляется JS, не трогаем! */
     }
 
+    /* Центрируем пункты меню */
     .navbar-nav {
-        align-items: stretch;
-        margin-bottom: 15px;
         text-align: center;
         width: 100%;
-        order: 1;                            /* сначала пункты меню */
+    }
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+    .navbar-nav .nav-link {
+        display: block;
+        padding: 0.75rem 1rem;
     }
 
-    .navbar-nav .nav-item { width: 100%; }
-    .navbar-nav .nav-link { display: block; width: 100%; }
-
-    /* Порядок и вид правого блока внутри бургера */
+    /* Блок с телефоном и кнопкой */
     .right-actions {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px !important;
+        flex-direction: column; /* Всегда в колонку */
+        align-items: center;    /* Центрируем по горизонтали */
+        gap: 1rem !important;   /* Пробел между телефоном и кнопкой */
         width: 100%;
-        order: 2;                            /* затем телефон и кнопка */
+        margin-top: 1rem;       /* Отступ от пунктов меню */
     }
 
-    /* Вернуть телефон только на мобильных */
+    /* Показываем телефон на мобильных */
     .right-actions .header-phone {
         display: block !important;
         margin: 0;
-        text-align: center;
-        width: 100%;
     }
 
-    /* Кнопка на всю ширину и под меню */
+    /* Кнопка на всю ширину */
     .right-actions .btn-primary-custom {
-        display: block;
         width: 100%;
+        max-width: 300px; /* Ограничим ширину для эстетики */
         text-align: center;
     }
-
-    /* Контент меню не обрезается на маленькой высоте экрана */
-    .navbar .container { max-width: 100%; }
-    .navbar .collapse.show { max-height: calc(100vh - 80px); overflow-y: auto; }
 }
 
 /* Responsive */
