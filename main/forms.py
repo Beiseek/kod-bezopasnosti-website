@@ -16,7 +16,6 @@ class ConsultationRequestForm(forms.ModelForm):
     class Meta:
         model = ConsultationRequest
         fields = ['name', 'phone', 'email', 'message', 'category']
-        exclude = ['agree_policy', 'agree_processing']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ваше имя'}),
             'phone': forms.TextInput(attrs={'class': 'form-control phone-mask', 'placeholder': '+7 (XXX) XXX-XX-XX'}),
@@ -30,4 +29,16 @@ class ConsultationRequestForm(forms.ModelForm):
             'email': 'Email',
             'message': 'Сообщение',
         }
+
+    # Явно делаем email необязательным для совместимости с разными браузерами
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].required = False
+
+    # Нормализуем пустой email в None, чтобы не падать на валидации/сохранении
+    def clean_email(self):
+        value = self.cleaned_data.get('email')
+        if not value:
+            return None
+        return value
 

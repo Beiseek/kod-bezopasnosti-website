@@ -149,8 +149,14 @@ EMAIL_TIMEOUT = 10
 CSRF_COOKIE_SECURE = False  # Для HTTP
 CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SECURE = False
 CSRF_TRUSTED_ORIGINS = [
     'http://91.229.8.148',
     'http://kod-bezopasnosti.ru',
     'http://www.kod-bezopasnosti.ru',
 ]
+
+# Upload/body size safety margins (help some browsers)
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
