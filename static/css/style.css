@@ -364,8 +364,49 @@ body {
     color: #065F46;
 }
 
-/* --- МОБИЛЬНОЕ МЕНЮ УДАЛЕНО --- */
-/* Теперь используется только десктопная версия меню */
+/* --- АДАПТИВНОСТЬ ХЕДЕРА --- */
+@media (max-width: 991.98px) {
+    /* На планшетах и мобильных - телефон и кнопка под меню */
+    .navbar .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .navbar .navbar-nav {
+        margin-bottom: 1rem;
+    }
+    
+    .navbar .right-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* На мобильных - все в одну колонку */
+    .navbar .d-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .navbar .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .navbar .navbar-nav .nav-item {
+        width: 100%;
+    }
+    
+    .navbar .navbar-nav .nav-link {
+        display: block;
+        padding: 0.75rem 1rem;
+    }
+}
 
 
 /* Responsive */
