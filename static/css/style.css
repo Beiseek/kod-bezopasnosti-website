@@ -662,12 +662,7 @@ body {
 /* Hide phone below 1450px and keep header compact */
 @media (max-width: 1450px) {
     .navbar .header-phone { display: none !important; }
-    /* ensure single-row layout when phone is hidden */
-    .navbar .navbar-collapse {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
+    /* не трогаем display у .navbar-collapse — им управляет Bootstrap */
 }
 
 /* На мобильных (ниже 992px) телефон всё же показываем */
@@ -677,7 +672,13 @@ body {
 
 /* Layout for screens between 992px and 1450px using CSS Grid */
 @media (min-width: 992px) and (max-width: 1450px) {
-    .navbar .navbar-collapse {
+    /* Состояние скрыто (Bootstrap): оставляем как есть */
+    .navbar .navbar-collapse.collapse:not(.show) {
+        display: none;
+    }
+
+    /* Состояние открыто: используем grid-раскладку без ломания Collapse */
+    .navbar .navbar-collapse.collapse.show {
         display: grid;
         grid-template-areas:
             "nav button"
@@ -688,20 +689,20 @@ body {
         align-items: center;
     }
 
-    .navbar .right-actions {
+    .navbar .navbar-collapse.collapse.show .right-actions-wrapper {
         display: contents;
     }
 
-    .navbar .navbar-nav {
+    .navbar .navbar-collapse.collapse.show .navbar-nav {
         grid-area: nav;
         margin: 0 auto !important; /* Center nav links in their area */
     }
 
-    .navbar .btn-primary-custom {
+    .navbar .navbar-collapse.collapse.show .btn-primary-custom {
         grid-area: button;
     }
 
-    .navbar .header-phone {
+    .navbar .navbar-collapse.collapse.show .header-phone {
         grid-area: phone;
         text-align: center;
         padding-bottom: 4px; /* Control overall header height */
