@@ -364,28 +364,14 @@ body {
     color: #065F46;
 }
 
-/* --- МОБИЛЬНОЕ МЕНЮ: МИНИМАЛЬНЫЙ ФИКС --- */
+/* --- МОБИЛЬНОЕ МЕНЮ: ТОЛЬКО ВЕРСТКА --- */
 @media (max-width: 991.98px) {
-    /* НЕ ТРОГАЕМ .navbar-collapse - пусть JS управляет display */
-    
-    /* Только стили для внутренних элементов */
-    .navbar-nav {
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    .right-actions {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
     /* Показываем телефон на мобильных */
     .navbar .header-phone {
         display: block !important;
     }
 
+    /* Кнопка на всю ширину */
     .right-actions .btn-primary-custom {
         width: 100%;
         max-width: 280px;
