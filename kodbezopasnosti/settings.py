@@ -155,6 +155,9 @@ CSRF_TRUSTED_ORIGINS = [
     'http://91.229.8.148',
     'http://kod-bezopasnosti.ru',
     'http://www.kod-bezopasnosti.ru',
+    'https://91.229.8.148',
+    'https://kod-bezopasnosti.ru',
+    'https://www.kod-bezopasnosti.ru',
 ]
 
 # Upload/body size safety margins (help some browsers)
