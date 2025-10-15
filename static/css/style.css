@@ -364,39 +364,24 @@ body {
     color: #065F46;
 }
 
-/* --- МОБИЛЬНОЕ МЕНЮ: ЯДЕРНЫЙ ВАРИАНТ --- */
+/* --- МОБИЛЬНОЕ МЕНЮ: МИНИМАЛЬНЫЙ ФИКС --- */
 @media (max-width: 991.98px) {
-    /* ЗАСТАВЛЯЕМ ОСНОВНОЙ КОНТЕЙНЕР БЫТЬ КОЛОНКОЙ */
-    .navbar-expand-lg .navbar-collapse {
-        flex-direction: column !important;
-        align-items: center !important;
-        margin-top: 1rem;
-        border-top: 1px solid #eee;
-        padding-top: 1rem;
-    }
-
-    /* Заставляем оба дочерних элемента занять всю ширину */
-    .navbar-collapse .navbar-nav,
-    .navbar-collapse .right-actions {
-        width: 100% !important;
-        justify-content: center !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-
-    /* Центрируем ссылки */
+    /* НЕ ТРОГАЕМ .navbar-collapse - пусть JS управляет display */
+    
+    /* Только стили для внутренних элементов */
     .navbar-nav {
         text-align: center;
         margin-bottom: 1rem;
     }
 
-    /* Внутренний блок с телефоном и кнопкой тоже делаем колонкой */
     .right-actions {
-        flex-direction: column !important;
-        gap: 1rem !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
     }
 
-    /* Показываем телефон, который скрыт на десктопе/планшете */
+    /* Показываем телефон на мобильных */
     .navbar .header-phone {
         display: block !important;
     }
