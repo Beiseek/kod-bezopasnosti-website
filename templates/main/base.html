@@ -60,7 +60,8 @@
                         <a class="nav-link {% if request.resolver_match.url_name == 'contacts' %}active{% endif %}" href="{% url 'contacts' %}">Контакты</a>
                     </li>
                 </ul>
-                <div class="right-actions d-flex align-items-center gap-3 ms-lg-3 flex-nowrap">
+                <!-- Телефон и кнопка только на десктопе -->
+                <div class="right-actions d-none d-lg-flex align-items-center gap-3 ms-lg-3 flex-nowrap">
                     <a href="tel:+79237743313" class="header-phone text-decoration-none">8-923-774-33-13</a>
                     <a href="{% url 'home' %}#consultation-form" class="btn btn-primary-custom">
                         Получить консультацию
