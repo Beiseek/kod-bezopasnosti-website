@@ -40,7 +40,11 @@ def home(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            consultation = form.save()
+            consultation = form.save(commit=False)
+            # Явно допускаем пустой email (модель уже поддерживает null/blank)
+            if not consultation.email:
+                consultation.email = None
+            consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('home')
@@ -55,7 +59,10 @@ def business(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            consultation = form.save()
+            consultation = form.save(commit=False)
+            if not consultation.email:
+                consultation.email = None
+            consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('business')
@@ -70,7 +77,10 @@ def industry(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            consultation = form.save()
+            consultation = form.save(commit=False)
+            if not consultation.email:
+                consultation.email = None
+            consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('industry')
@@ -85,7 +95,10 @@ def city(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            consultation = form.save()
+            consultation = form.save(commit=False)
+            if not consultation.email:
+                consultation.email = None
+            consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('city')
@@ -100,7 +113,10 @@ def housing(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            consultation = form.save()
+            consultation = form.save(commit=False)
+            if not consultation.email:
+                consultation.email = None
+            consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('housing')
@@ -115,7 +131,10 @@ def contacts(request):
     if request.method == 'POST':
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
-            consultation = form.save()
+            consultation = form.save(commit=False)
+            if not consultation.email:
+                consultation.email = None
+            consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('contacts')
