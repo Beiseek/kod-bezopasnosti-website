@@ -365,29 +365,36 @@ body {
 }
 
 /* --- МОБИЛЬНОЕ МЕНЮ (БУРГЕР) --- */
-/* Удаляем старые стили и пишем заново, чтобы не конфликтовать с JS Bootstrap */
+/* ПОЛНОЕ ПЕРЕОПРЕДЕЛЕНИЕ СТИЛЕЙ ДЛЯ ИСПРАВЛЕНИЯ КОНФЛИКТОВ */
 @media (max-width: 991.98px) {
+    /* Сбрасываем flex-direction для контейнера, чтобы элементы шли в столбик */
     .navbar-collapse {
         margin-top: 1rem;
         border-top: 1px solid #eee;
         padding-top: 1rem;
-    }
-
-    /* Заставляем .navbar-nav (ссылки) и .right-actions (кнопка) вести себя как блочные элементы в колонке */
-    .navbar-collapse .navbar-nav,
-    .navbar-collapse .right-actions {
+        display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
     }
 
-    .navbar-nav .nav-item {
+    /* Навигационные ссылки */
+    .navbar-nav {
         width: 100%;
         text-align: center;
+        margin-bottom: 1rem;
     }
 
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+
+    /* Блок с телефоном и кнопкой */
     .right-actions {
-        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 1rem !important;
     }
 
@@ -400,7 +407,13 @@ body {
         width: 100%;
         max-width: 280px; /* Чтобы кнопка не была слишком широкой */
     }
+
+    /* Сбрасываем justify-content, который мешал на мобильных */
+    .navbar-collapse.justify-content-between {
+        justify-content: center !important;
+    }
 }
+
 
 /* Responsive */
 @media (max-width: 768px) {
