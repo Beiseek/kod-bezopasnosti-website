@@ -365,53 +365,36 @@ body {
 }
 
 /* --- МОБИЛЬНОЕ МЕНЮ (БУРГЕР) --- */
-/* ПОЛНОЕ ПЕРЕОПРЕДЕЛЕНИЕ СТИЛЕЙ ДЛЯ ИСПРАВЛЕНИЯ КОНФЛИКТОВ */
+/* Финальное исправление: не трогаем display, чтобы JS мог закрывать меню. */
 @media (max-width: 991.98px) {
-    /* Сбрасываем flex-direction для контейнера, чтобы элементы шли в столбик */
-    .navbar-collapse {
-        margin-top: 1rem;
-        border-top: 1px solid #eee;
-        padding-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
+  .navbar-collapse {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
 
-    /* Навигационные ссылки */
-    .navbar-nav {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
+  .navbar-nav {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
 
-    .navbar-nav .nav-item {
-        width: 100%;
-    }
+  .right-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem !important;
+  }
 
-    /* Блок с телефоном и кнопкой */
-    .right-actions {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem !important;
-    }
-
-    /* Показываем телефон на мобильных */
-    .navbar .header-phone {
-        display: block !important;
-    }
-
-    .right-actions .btn-primary-custom {
-        width: 100%;
-        max-width: 280px; /* Чтобы кнопка не была слишком широкой */
-    }
-
-    /* Сбрасываем justify-content, который мешал на мобильных */
-    .navbar-collapse.justify-content-between {
-        justify-content: center !important;
-    }
+  .navbar .header-phone {
+    display: block !important;
+    margin: 0;
+  }
+  
+  .right-actions .btn-primary-custom {
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+  }
 }
 
 
