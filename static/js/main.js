@@ -1,32 +1,6 @@
 // Smooth scroll для навигации
 document.addEventListener('DOMContentLoaded', function() {
-    // Надёжное управление мобильным меню (Bootstrap Collapse)
-    const navbarCollapseEl = document.getElementById('navbarNavContent');
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    if (navbarCollapseEl && navbarToggler && window.bootstrap) {
-        const bsCollapse = new bootstrap.Collapse(navbarCollapseEl, { toggle: false });
-
-        // Переключение по клику на бургер
-        navbarToggler.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (navbarCollapseEl.classList.contains('show')) {
-                bsCollapse.hide();
-            } else {
-                bsCollapse.show();
-            }
-        });
-
-        // Закрытие при клике вне меню
-        document.addEventListener('click', function(e) {
-            if (!navbarCollapseEl.classList.contains('show')) return;
-            const clickedInsideMenu = navbarCollapseEl.contains(e.target);
-            const clickedOnToggler = e.target.closest('.navbar-toggler');
-            if (!clickedInsideMenu && !clickedOnToggler) {
-                bsCollapse.hide();
-            }
-        });
-    }
+    // Bootstrap сам управляет коллапсом по data-bs-* — кастомная логика не нужна
 
     // Smooth scroll для всех якорных ссылок
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -39,11 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     block: 'start'
                 });
 
-                // Закрываем мобильное меню (если оно открыто) после клика по якорю
-                const navbarCollapseElShown = document.querySelector('.navbar-collapse.show');
-                if (navbarCollapseElShown && window.bootstrap) {
-                    const bsCollapseShown = new bootstrap.Collapse(navbarCollapseElShown, { toggle: false });
-                    bsCollapseShown.hide();
+                // Закрываем мобильное меню (если открыто) через Bootstrap API
+                const shown = document.querySelector('.navbar-collapse.show');
+                if (shown && window.bootstrap) {
+                    const instance = bootstrap.Collapse.getInstance(shown) || new bootstrap.Collapse(shown, { toggle: false });
+                    instance.hide();
                 }
             }
         });
