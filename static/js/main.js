@@ -1,7 +1,5 @@
 // Smooth scroll для навигации
 document.addEventListener('DOMContentLoaded', function() {
-    // Мобильное меню удалено - используется только десктопная версия
-
     // Smooth scroll для всех якорных ссылок
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -12,6 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth',
                     block: 'start'
                 });
+
+                // Закрываем мобильное меню (если оно открыто) после клика по якорю
+                const navbarCollapse = document.querySelector('.navbar-collapse.show');
+                if (navbarCollapse) {
+                    new bootstrap.Collapse(navbarCollapse).hide();
+                }
             }
         });
     });

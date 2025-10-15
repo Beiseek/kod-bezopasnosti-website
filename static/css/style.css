@@ -20,19 +20,13 @@ body {
     line-height: 1.6;
 }
 
-/* Navbar Styles */
-.navbar {
-    background: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
+/* =============================================== */
+/* НОВЫЙ ХЕДЕР */
+/* =============================================== */
 
-/* немного шире контейнер в шапке */
-.navbar .container {
-    max-width: 1420px; /* ещё +100px ширины */
+/* Общие стили для панели навигации */
+.navbar {
+    transition: all 0.3s ease;
 }
 
 .navbar-brand {
@@ -44,27 +38,14 @@ body {
 .nav-link {
     color: var(--text-dark) !important;
     font-weight: 500;
-    font-size: 0.95rem; /* уменьшили размер меню */
+    font-size: 0.95rem;
     margin: 0 0.5rem;
     padding: 0.5rem 1rem !important;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
-.navbar-nav {
-    align-items: center;
-    flex-wrap: nowrap; /* не переносить пункты меню */
-}
-
-.navbar .right-actions { flex-wrap: nowrap; }
-.navbar .nav-link { white-space: nowrap; }
-.navbar .btn-primary-custom { white-space: nowrap; }
-.header-phone { white-space: nowrap; }
-
-.navbar .collapse {
-    flex-wrap: nowrap; /* страховка от переноса правого блока */
-}
-
-.nav-link:hover {
+.nav-link:hover, .nav-link.active {
     color: var(--primary-blue) !important;
 }
 
@@ -76,6 +57,7 @@ body {
     border-radius: 8px;
     font-weight: 600;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .btn-primary-custom:hover {
@@ -83,6 +65,42 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
 }
+
+.header-phone {
+    font-weight: 600;
+    color: #0d6efd;
+    white-space: nowrap;
+    margin-right: 1rem;
+}
+.header-phone:hover {
+    color: #0b5ed7;
+}
+
+/* --- Адаптивность хедера --- */
+@media (max-width: 991.98px) {
+    /* На мобильных устройствах */
+    .navbar-collapse {
+        margin-top: 1rem;
+        border-top: 1px solid #eee;
+        padding-top: 1rem;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+    
+    .right-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .header-phone {
+        margin-right: 0;
+    }
+}
+
 
 /* Hero Section */
 .hero-section {
@@ -327,15 +345,6 @@ body {
     color: #94A3B8;
 }
 
-/* телефон в шапке */
-.header-phone {
-    font-weight: 600;
-    color: #0d6efd;
-}
-.header-phone:hover {
-    color: #0b5ed7;
-}
-
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -363,82 +372,6 @@ body {
     background: #D1FAE5;
     color: #065F46;
 }
-
-/* --- АДАПТИВНОСТЬ ХЕДЕРА --- */
-@media (max-width: 991.98px) {
-    /* На планшетах и мобильных - телефон и кнопка под меню */
-    .navbar .d-flex {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .navbar .navbar-nav {
-        margin-bottom: 1rem;
-    }
-    
-    .navbar .right-actions {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    /* На мобильных - все в одну колонку */
-    .navbar .d-flex {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .navbar .navbar-nav {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-    }
-    
-    .navbar .navbar-nav .nav-item {
-        width: 100%;
-    }
-    
-    .navbar .navbar-nav .nav-link {
-        display: block;
-        padding: 0.75rem 1rem;
-    }
-}
-
-
-/* Responsive */
-@media (max-width: 768px) {
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-section .lead {
-        font-size: 1.1rem;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .cta-phone {
-        font-size: 1.8rem;
-    }
-}
-
-/* Icon Styles */
-.icon-business::before { content: '💼'; }
-.icon-industry::before { content: '🏭'; }
-.icon-city::before { content: '🏙️'; }
-.icon-housing::before { content: '🏘️'; }
-.icon-security::before { content: '🛡️'; }
-.icon-analytics::before { content: '📊'; }
-.icon-ai::before { content: '🤖'; }
-.icon-support::before { content: '🔧'; }
-.icon-search::before { content: '🔍'; }
-.icon-alert::before { content: '⚠️'; }
 
 /* Problem Section with Images */
 .problem-section-with-images {
