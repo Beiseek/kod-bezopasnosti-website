@@ -367,14 +367,20 @@ body {
 @media (max-width: 991px) {
     .navbar-collapse {
         margin-top: 15px;
+        display: block !important;          /* коллапс как блочный контейнер */
+        width: 100%;
     }
 
     .navbar-nav {
-        align-items: center;
+        align-items: stretch;
         margin-bottom: 15px;
         text-align: center;
         width: 100%;
+        order: 1;                            /* сначала пункты меню */
     }
+
+    .navbar-nav .nav-item { width: 100%; }
+    .navbar-nav .nav-link { display: block; width: 100%; }
 
     /* Порядок и вид правого блока внутри бургера */
     .right-actions {
@@ -383,6 +389,7 @@ body {
         align-items: center;
         gap: 15px !important;
         width: 100%;
+        order: 2;                            /* затем телефон и кнопка */
     }
 
     /* Вернуть телефон только на мобильных */
@@ -399,6 +406,10 @@ body {
         width: 100%;
         text-align: center;
     }
+
+    /* Контент меню не обрезается на маленькой высоте экрана */
+    .navbar .container { max-width: 100%; }
+    .navbar .collapse.show { max-height: calc(100vh - 80px); overflow-y: auto; }
 }
 
 /* Responsive */
