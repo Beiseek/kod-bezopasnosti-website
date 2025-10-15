@@ -1,5 +1,33 @@
 // Smooth scroll для навигации
 document.addEventListener('DOMContentLoaded', function() {
+    // Надёжное управление мобильным меню (Bootstrap Collapse)
+    const navbarCollapseEl = document.getElementById('navbarNavContent');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    if (navbarCollapseEl && navbarToggler && window.bootstrap) {
+        const bsCollapse = new bootstrap.Collapse(navbarCollapseEl, { toggle: false });
+
+        // Переключение по клику на бургер
+        navbarToggler.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (navbarCollapseEl.classList.contains('show')) {
+                bsCollapse.hide();
+            } else {
+                bsCollapse.show();
+            }
+        });
+
+        // Закрытие при клике вне меню
+        document.addEventListener('click', function(e) {
+            if (!navbarCollapseEl.classList.contains('show')) return;
+            const clickedInsideMenu = navbarCollapseEl.contains(e.target);
+            const clickedOnToggler = e.target.closest('.navbar-toggler');
+            if (!clickedInsideMenu && !clickedOnToggler) {
+                bsCollapse.hide();
+            }
+        });
+    }
+
     // Smooth scroll для всех якорных ссылок
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -12,10 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 // Закрываем мобильное меню (если оно открыто) после клика по якорю
-                const navbarCollapseEl = document.querySelector('.navbar-collapse.show');
-                if (navbarCollapseEl) {
-                    const bsCollapse = new bootstrap.Collapse(navbarCollapseEl);
-                    bsCollapse.hide();
+                const navbarCollapseElShown = document.querySelector('.navbar-collapse.show');
+                if (navbarCollapseElShown && window.bootstrap) {
+                    const bsCollapseShown = new bootstrap.Collapse(navbarCollapseElShown, { toggle: false });
+                    bsCollapseShown.hide();
                 }
             }
         });
