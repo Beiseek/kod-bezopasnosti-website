@@ -41,9 +41,9 @@ def home(request):
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
             consultation = form.save(commit=False)
-            # Явно допускаем пустой email (модель уже поддерживает null/blank)
-            if not consultation.email:
-                consultation.email = None
+            # Страхуемся от специфики некоторых браузеров (Яндекс)
+            consultation.email = consultation.email or None
+            consultation.message = consultation.message or ''
             consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
@@ -60,8 +60,8 @@ def business(request):
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
             consultation = form.save(commit=False)
-            if not consultation.email:
-                consultation.email = None
+            consultation.email = consultation.email or None
+            consultation.message = consultation.message or ''
             consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
@@ -78,8 +78,8 @@ def industry(request):
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
             consultation = form.save(commit=False)
-            if not consultation.email:
-                consultation.email = None
+            consultation.email = consultation.email or None
+            consultation.message = consultation.message or ''
             consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
@@ -96,8 +96,8 @@ def city(request):
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
             consultation = form.save(commit=False)
-            if not consultation.email:
-                consultation.email = None
+            consultation.email = consultation.email or None
+            consultation.message = consultation.message or ''
             consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
@@ -114,8 +114,8 @@ def housing(request):
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
             consultation = form.save(commit=False)
-            if not consultation.email:
-                consultation.email = None
+            consultation.email = consultation.email or None
+            consultation.message = consultation.message or ''
             consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
@@ -132,8 +132,8 @@ def contacts(request):
         form = ConsultationRequestForm(request.POST)
         if form.is_valid():
             consultation = form.save(commit=False)
-            if not consultation.email:
-                consultation.email = None
+            consultation.email = consultation.email or None
+            consultation.message = consultation.message or ''
             consultation.save()
             send_consultation_email(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')

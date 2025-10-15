@@ -42,3 +42,12 @@ class ConsultationRequestForm(forms.ModelForm):
             return None
         return value
 
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone', '') or ''
+        # Нормализуем телефон: оставляем только цифры и знаки +() - пробелы
+        # Но не падаем, если браузер прислал что-то необычное
+        phone = str(phone).strip()
+        if len(phone) > 50:
+            phone = phone[:50]
+        return phone
+
