@@ -21,18 +21,14 @@ body {
 }
 
 /* =============================================== */
-/* НОВЫЙ ХЕДЕР */
+/* НОВЫЙ ХЕДЕР (ПЕРЕСБОРКА С НУЛЯ) */
 /* =============================================== */
 
-/* Общие стили для панели навигации */
-.navbar {
-    transition: all 0.3s ease;
-}
+/* -- 1. Стили для десктопа (по умолчанию) -- */
 
-.navbar-brand {
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: var(--primary-blue) !important;
+.logo-image-header {
+    height: 80px;
+    width: auto;
 }
 
 .nav-link {
@@ -41,12 +37,23 @@ body {
     font-size: 0.95rem;
     margin: 0 0.5rem;
     padding: 0.5rem 1rem !important;
-    transition: color 0.3s ease;
     white-space: nowrap;
+    transition: color 0.3s ease;
 }
 
 .nav-link:hover, .nav-link.active {
     color: var(--primary-blue) !important;
+}
+
+.header-phone {
+    font-weight: 600;
+    color: #0d6efd;
+    white-space: nowrap;
+    margin-right: 1.5rem;
+    text-decoration: none;
+}
+.header-phone:hover {
+    color: #0b5ed7;
 }
 
 .btn-primary-custom {
@@ -56,48 +63,45 @@ body {
     padding: 0.6rem 1.5rem;
     border-radius: 8px;
     font-weight: 600;
-    transition: all 0.3s ease;
     white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .btn-primary-custom:hover {
     background: var(--secondary-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
 }
 
-.header-phone {
-    font-weight: 600;
-    color: #0d6efd;
-    white-space: nowrap;
-    margin-right: 1rem;
-}
-.header-phone:hover {
-    color: #0b5ed7;
-}
-
-/* --- Адаптивность хедера --- */
+/* -- 2. Стили для мобильных устройств -- */
 @media (max-width: 991.98px) {
-    /* На мобильных устройствах */
+    /* Контейнер контента меню */
     .navbar-collapse {
         margin-top: 1rem;
-        border-top: 1px solid #eee;
         padding-top: 1rem;
-    }
-
-    .navbar-nav {
-        text-align: center;
+        border-top: 1px solid #eee;
     }
     
-    .right-actions {
+    /* Центрируем ссылки */
+    .navbar-nav {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    /* Контейнер для телефона и кнопки */
+    .right-actions-wrapper {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        margin-top: 1rem;
     }
 
     .header-phone {
-        margin-right: 0;
+        margin-right: 0; /* Убираем отступ справа на мобильных */
+    }
+
+    .btn-primary-custom {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
     }
 }
 

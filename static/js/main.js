@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 // Закрываем мобильное меню (если оно открыто) после клика по якорю
-                const navbarCollapse = document.querySelector('.navbar-collapse.show');
-                if (navbarCollapse) {
-                    new bootstrap.Collapse(navbarCollapse).hide();
+                const navbarCollapseEl = document.querySelector('.navbar-collapse.show');
+                if (navbarCollapseEl) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapseEl);
+                    bsCollapse.hide();
                 }
             }
         });

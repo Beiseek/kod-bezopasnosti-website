@@ -30,16 +30,24 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <!-- НОВЫЙ ХЕДЕР С ЧИСТОЙ СТРУКТУРОЙ BOOTSTRAP 5 -->
+    <!-- =============================================== -->
+    <!-- НОВЫЙ ХЕДЕР (ПЕРЕСБОРКА С НУЛЯ) -->
+    <!-- =============================================== -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container" style="max-width: 1420px;">
+            <!-- Логотип -->
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'images/logo.png' %}" alt="Код Безопасности" class="logo-image-header">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+            <!-- Кнопка "бургер" для мобильных -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavContent" aria-controls="navbarNavContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+
+            <!-- Контент меню (коллапс) -->
+            <div class="collapse navbar-collapse" id="navbarNavContent">
+                <!-- Навигационные ссылки (выравниваются по центру на десктопе) -->
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Главная</a>
@@ -60,7 +68,9 @@
                         <a class="nav-link {% if request.resolver_match.url_name == 'contacts' %}active{% endif %}" href="{% url 'contacts' %}">Контакты</a>
                     </li>
                 </ul>
-                <div class="right-actions d-flex align-items-center">
+
+                <!-- Телефон и кнопка (справа на десктопе) -->
+                <div class="d-flex align-items-center right-actions-wrapper">
                     <a href="tel:+79237743313" class="header-phone text-decoration-none">8-923-774-33-13</a>
                     <a href="{% url 'home' %}#consultation-form" class="btn btn-primary-custom">
                         Получить консультацию
@@ -69,6 +79,10 @@
             </div>
         </div>
     </nav>
+    <!-- =============================================== -->
+    <!-- КОНЕЦ НОВОГО ХЕДЕРА -->
+    <!-- =============================================== -->
+
 
     <!-- Messages -->
     {% if messages %}
