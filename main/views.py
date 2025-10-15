@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+import threading
 from django.contrib import messages
 from django.core.mail import send_mail, get_connection
 from django.conf import settings
@@ -53,6 +54,15 @@ def send_consultation_email(consultation):
         pass
 
 
+def send_consultation_email_async(consultation):
+    """Запускает отправку письма в отдельном потоке, чтобы не блокировать ответ пользователю."""
+    try:
+        threading.Thread(target=send_consultation_email, args=(consultation,), daemon=True).start()
+    except Exception:
+        # Не мешаем основному потоку при ошибке запуска
+        pass
+
+
 def home(request):
     """Главная страница"""
     if request.method == 'POST':
@@ -63,7 +73,8 @@ def home(request):
             consultation.email = consultation.email or None
             consultation.message = consultation.message or ''
             consultation.save()
-            send_consultation_email(consultation)
+            # Отправляем письмо асинхронно, чтобы не задерживать ответ пользователю
+            send_consultation_email_async(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('home')
     else:
@@ -81,7 +92,7 @@ def business(request):
             consultation.email = consultation.email or None
             consultation.message = consultation.message or ''
             consultation.save()
-            send_consultation_email(consultation)
+            send_consultation_email_async(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('business')
     else:
@@ -99,7 +110,7 @@ def industry(request):
             consultation.email = consultation.email or None
             consultation.message = consultation.message or ''
             consultation.save()
-            send_consultation_email(consultation)
+            send_consultation_email_async(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('industry')
     else:
@@ -117,7 +128,7 @@ def city(request):
             consultation.email = consultation.email or None
             consultation.message = consultation.message or ''
             consultation.save()
-            send_consultation_email(consultation)
+            send_consultation_email_async(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('city')
     else:
@@ -135,7 +146,7 @@ def housing(request):
             consultation.email = consultation.email or None
             consultation.message = consultation.message or ''
             consultation.save()
-            send_consultation_email(consultation)
+            send_consultation_email_async(consultation)
             messages.success(request, 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.')
             return redirect('housing')
     else:
